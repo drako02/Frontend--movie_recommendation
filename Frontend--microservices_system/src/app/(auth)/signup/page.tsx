@@ -47,7 +47,7 @@ const SignupPage = () => {
         <>
             <form className='w-[100%] h-[80%] px-[5px]' onSubmit={handleSubmit}>
 
-                <div className='w-[100%] h-[100%] flex flex-col justify-between items-center gap-[15px] p-[10px]'>
+                <div className='w-[100%] h-[100%] flex flex-col justify-between items-center gap-3 p-[10px]'>
                     <p className='font-medium'> Create an account for free </p>
                     <FormControl isInvalid={ false } isRequired >
                         <FormLabel fontSize="small" > Name </FormLabel>

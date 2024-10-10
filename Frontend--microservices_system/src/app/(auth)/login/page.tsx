@@ -8,6 +8,10 @@ import {
     FormHelperText,
     Input,
     Button,
+    Alert,
+    AlertTitle,
+    AlertIcon,
+    AlertDescription,
 } from '@chakra-ui/react'
 import { useState } from 'react';
 import Link from 'next/link';
@@ -21,6 +25,7 @@ interface FormData {
 const LoginPage = () => {
 
     const [formData, setFormData] = useState<FormData>({ name_or_email: '', password: '' });
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const router = useRouter();
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +35,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setErrorMessage(null);
         const response = await fetch('/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -48,7 +54,9 @@ const LoginPage = () => {
 
             setFormData({ name_or_email: '', password: '' });
         } else {
-            console.error('Login failed');
+            const errorData = await response.json();
+            console.error(errorData.message, 'Login failed ');
+            setErrorMessage(errorData.message || 'Login failed');
         }
 
 
@@ -59,8 +67,15 @@ const LoginPage = () => {
         <>
             <form className='w-[100%] h-[80%] px-[5px]' onSubmit={ handleSubmit } >
 
-                <div className='w-[100%] h-[100%] flex flex-col justify-between items-center gap-[15px] p-[10px]'>
+                <div className='w-[100%] h-[100%] flex flex-col justify-between items-center gap-3 p-[10px]'>
                     <p className='font-medium'> Login Here </p>
+                    { errorMessage && (
+                        <Alert status='error'>
+                            <AlertIcon />
+                            <AlertTitle>Login failed</AlertTitle>
+                            <AlertDescription>{ errorMessage }</AlertDescription>
+                        </Alert>
+                    )}
                     <FormControl isInvalid={ false } >
                         <FormLabel fontSize="small"> Username / Email </FormLabel>
                         <Input type='text'

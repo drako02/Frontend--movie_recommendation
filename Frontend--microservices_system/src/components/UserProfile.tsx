@@ -1,19 +1,26 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
+import { Skeleton, Stack } from "@chakra-ui/react";
 
 interface User {
     id: number;
     name: string;
     email: string;
 }
-const UserProfile = () => {
+
+interface Props {
+    userId:string|string[]
+}
+
+const UserProfile = ({userId}:Props) => {
     const [user, setUser] = useState<User | null>(null);
     const router = useRouter();
     // const params = useParams();
-    const { userId } = useParams();
+    // const params = useParams();
+    // const userId = params.userId;
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -46,14 +53,20 @@ const UserProfile = () => {
     }, [userId]);
 
     if (!user) {
-        return <div>Loading...</div>;
-    }
+        return (
+            <Stack className="!h-[100%] !w-[100%]">
+                <Skeleton height='20px' width={1000} />
+                <Skeleton height='20px' />
+                <Skeleton height='20px' />
+            </Stack>
+        );
+    };
 
     return (
         <div>
-            <h1>Your Name: { user.name }</h1>
-            <h1>Your Email: { user.email }</h1>
-            <h1>Your ID: { user.id }</h1>
+                <h1>Your Name: { user.name }</h1>
+                <h1>Your Email: { user.email }</h1>
+                <h1>Your ID: { user.id }</h1>
         </div>
     );
 };
