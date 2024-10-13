@@ -11,7 +11,7 @@ export async function POST(request: Request) {
       body: JSON.stringify(formData),
     });
 
-    console.log(JSON.stringify(formData), "222");
+    // console.log(JSON.stringify(formData), "222");
 
     if (!res.ok) {
       const errorData = await res.json();
