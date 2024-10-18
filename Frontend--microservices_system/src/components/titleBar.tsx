@@ -41,7 +41,7 @@ export default function TiTleBar() {
     }
 
     return (
-        <header className="bg-teal-500">
+        <header className="bg-[#1A1D1F] border-b-[]">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link href="#" className="-m-1.5 p-1.5">
@@ -54,7 +54,7 @@ export default function TiTleBar() {
                     <button
                         type="button"
                         onClick={ () => setMobileMenuOpen(true) }
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-50"
                     >
                         <span className="sr-only">Open main menu</span>
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -63,25 +63,25 @@ export default function TiTleBar() {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     
 
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-50">
                         Home
                     </Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="/explore" className="text-sm font-semibold leading-6 text-gray-50">
                         Explore
                     </Link>
-                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="#" className="text-sm font-semibold leading-6 text-gray-50">
                         Features
                     </Link>
                 </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="/login" onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900">
+                    <Link href="/login" onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-50">
                         Log out <span aria-hidden="true">&rarr;</span>
                     </Link>
                 </div>
             </nav>
-            <Dialog open={ mobileMenuOpen } onClose={ setMobileMenuOpen } className="lg:hidden">
-                <div className="fixed inset-0 z-10" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <Dialog open={ mobileMenuOpen } onClose={ setMobileMenuOpen } className="lg:hidden ">
+                <div className="fixed inset-0 z-10 " />
+                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#1A1D1F] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <Link href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
@@ -90,7 +90,7 @@ export default function TiTleBar() {
                         <button
                             type="button"
                             onClick={ () => setMobileMenuOpen(false) }
-                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                            className="-m-2.5 rounded-md p-2.5 text-[#8f9194]"
                         >
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -102,19 +102,19 @@ export default function TiTleBar() {
                                 
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-50 hover:bg-[#8f9194]"
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-50 hover:bg-[#8f9194]"
                                 >
                                     Explore
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-50 hover:bg-[#8f9194]"
                                 >
                                     Features
                                 </Link>
@@ -123,7 +123,7 @@ export default function TiTleBar() {
                                 <Link
                                     href="/login"
                                     onClick={handleLogout}
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-50 hover:bg-[#8f9194]"
                                 >
                                     Log out
                                 </Link>

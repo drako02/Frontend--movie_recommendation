@@ -73,16 +73,16 @@ const UserProfile = ({userId}:Props) => {
 
     return (
 
-        <div className="h-full w-full flex justify-start" >
+        <div className="h-full w-full flex justify-start bg-[#111315] text-[#8f9194]" >
 
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full mt-[4px]">
                 <SidePanel open={ sideOpen }></SidePanel>
             </div>
             <div className="w-full h-full flex flex-col items-center gap-[16px] pt-[10px]">
                 <p className="w-[90%]"> Profile </p>
-                <div className=" relative w-[90%] h-[30%] border-[2px] flex flex-col rounded-[10px]">
-                    <div className=" w-full h-[65%] bg-slate-400 ">
-                        <Image src={ coverPic } alt="cover" className="w-full h-full bg-auto bg-no-repeat bg-center"/>
+                <div className=" relative w-[90%] h-[30%]  flex flex-col rounded-[10px] bg-[#1A1D1F]">
+                    <div className=" relative w-full h-[65%] rounded-t-[10px]">
+                        <Image src={ coverPic } alt="cover" className="absolute inset-0 w-full h-full object-cover rounded-t-[10px]"/>
                     </div>
                     <div className=" w-full h-[35%] px-[20%] flex items-center">
                         <p>{ user.name}</p>
@@ -90,7 +90,7 @@ const UserProfile = ({userId}:Props) => {
                     <Image src={""} alt="profile-pic" className="border-[px] w-[75px] h-[75px] absolute top-[50%] left-[4%] bg-black rounded-full"/>
 
                 </div>
-                <div className=" w-[90%] h-[55%] border-[2px] rounded-[10px]">
+                <div className=" w-[90%] h-[55%] rounded-[10px] bg-[#1A1D1F]">
 
                 </div>
 
